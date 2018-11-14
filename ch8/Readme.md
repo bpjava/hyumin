@@ -7,6 +7,10 @@
 | :--------: | :--------: |
 | 컴파일할 때 발생하는 에러 | 실행할 때 발생하는 에러 |
 
+- 논리적 에러
+의도와 다른 결과를 초래
+오류는 없으나 결과가 원치 않게 나옴
+ex) 창고 재고가 음수로나옴
 
 ### JAVA의 런타임 에러 - 프로그램 코드에 의해서 에러(error)와 예외(Exception)
 
@@ -49,9 +53,14 @@ try {
 2. O - catch블럭 내 문장들 수행 /
 	  X - 예외 처리되지 않음
 
+[ExceptionEx5](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx5.java)
+123**56**
+
 > try블럭 내에서 예외가 발생하지 않은 경우
 1. catch 블럭을 거치지 않고 전체 try - catch문을 빠져나가서 수행함
 
+[ExceptionEx4](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx4.java)
+123**46**
 
 ## 1.5 예외 발생시키기
 
@@ -67,24 +76,37 @@ throw e;
 ```
 throw new Exception("고의로 발생");
 ```
-
+[ExceptionEx6 - 예외발생](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx6.java)
 
 ## 1.6 예외클래스의 계층구조
 
-> RuntimeException클래스들 - 예외처리 필수
+> RuntimeException클래스들 - 예외처리 선택
 
-프로그래머 실수로 발생하는 예외 
+프로그래머 실수로 발생하는 예외, 컴파일 에러가 나지 않음(예외체크 X)
 
-> Exception클래스들 - 예외처리 선택
+ex> ClassCastException, NullPointerException, IndexOutOfBoundException
 
-사용자의 실수와 같은 외적인 요인에 의해 발생하는 예외 
+[ExceptionEx9 - RuntimeException](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx9.java)
+
+> Exception클래스들 - 예외처리 필수
+
+사용자의 실수와 같은 외적인 요인에 의해 발생하는 예외 (예외체크 O)
+
+ex> IOException, ClassNotFoundException
+
+[ExceptionEx7 - Exception](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx7.java)
+
+
+[ExceptionEx8 - **예외처리 후**](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx8.java)
+
 
 
 ## 1.7 예외의 발생과 catch블럭
+[ExceptionEx11 - 예외를 찾을땐 instanceof연산자 사용](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx11.java)
 
   - try블럭에서 예외가 발생하면, 발생한 예외를 처리할 catch블럭을 찾는다.
   - 첫번째 catch블럭부터 순서대로 찾아 내려가며, 일치하는 catch블럭이 없으면 예외는 처리되지 않는다.
-  - 예외의 최고 조상인 Exception을 처리하는 catch블럭은 모든 종류의 예외를 처리할 수 있다. (반드시 마지막 catch블럭이어야 한다.)
+  - 예외의 최고 조상인 Exception을 처리하는 catch블럭은 모든 종류의 예외를 처리할 수 있다.  **(반드시 마지막 catch블럭이어야 한다.)**
   
   - 발생한 예외 객체를 catch블럭의 참조변수로 접근할 수 있다.
 
@@ -92,10 +114,12 @@ throw new Exception("고의로 발생");
 | :--------: | :--------: |
 | 예외발생 당시의 호출스택(Call Stack)에 있었던 메서드의 정보와 예외 메시지를 화면에 출력 | 발생한 예외클래스의 인스턴스에 저장된 메시지를 얻을 수 있다. |
 
+[ExceptionEx12 - printStackTrace()/getMessage()](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx12.java)
+
 
 ## 1.8 finally 블럭
 
-- 예외의 발생여부와 관계없이 실행되어야 하는 코드를 넣는다.
+- 예외의 발생여부와 관계없이 **항상** 실행되어야 하는 코드를 넣는다.
 - 선택적으로 사용할 수 있으며, try-catch-finally의 순서로 구성된다.
 - 예외 발생시, try -> catch -> finally 순서로 실행되고
 - 예외 미발생시, try -> finally의 순서로 실행된다.
@@ -113,6 +137,10 @@ try {
 }
 ```
 
+[ExceptionEx15 - finally 사용법](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx15.java)
+
+[ExceptionEx16 - finally 적용](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx16.java)
+
 
 ## 1.9 메서드에 예외선언하기
 
@@ -127,12 +155,25 @@ void method() throws Exception1, Exception2, ... ExceptionN {
 
 > 예외를 발생시키는 키워드 throw와 예외를 메서드에 선언할 때 쓰이는 throws를 잘 구별!
 
+[ExceptionEx18 - 예외선언순서](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx18.java)
+
+### 예외처리 위치
+[ExceptionEx19 - method1에서 예외처리](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx19.java)
+
+
+[ExceptionEx20 - main에서 예외처리](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx20.java)
+
+### 파일 생성 예제
+[ExceptionEx21 - method1에서 예외처리](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx21.java)
+
+[ExceptionEx22 - main에서 예외처리](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx21.java)
 
 ## 1.10 예외 되던지기(re-throwing)
 
   - 예외를 처리한 후에 다시 예외를 생성해서 호출한 메서드로 전달하는 것
   - 예외가 발생한 메서드와 호출한 메서드, 양쪽에서 예외를 처리해야 하는 경우에 사용.
 
+[ExceptionEx23 - 양쪽 예외처리](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx23.java)
 
 ## 1.11 사용자정의 예외 만들기
 
