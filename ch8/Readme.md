@@ -110,7 +110,7 @@ ex> IOException, ClassNotFoundException
 | :--------: | :--------: |
 | 예외발생 당시의 호출스택(Call Stack)에 있었던 메서드의 정보와 예외 메시지를 화면에 출력 | 발생한 예외클래스의 인스턴스에 저장된 메시지를 얻을 수 있다. |
 
-[printStackTrace()/getMessage()](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx8.java)
+[printStackTrace()/getMessage()](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/Exception8.java)
 
 
 ## 1.8 finally 블럭
@@ -135,7 +135,7 @@ try {
 
 [finally 사용법](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/FinallyTest.java)
 
-[finally 적용](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/FinallyTest2.java)
+[finally 적용](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/FinallyTest3.java)
 
 
 ## 1.9 메서드에 예외선언하기
@@ -151,7 +151,7 @@ void method() throws Exception1, Exception2, ... ExceptionN {
 
 > 예외를 발생시키는 키워드 throw와 예외를 메서드에 선언할 때 쓰이는 throws를 잘 구별!
 
-[예외선언순서](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx12.java)
+[예외선언순서](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/Exception12.java)
 
 ### 예외처리 위치
 [method1에서 예외처리](https://github.com/bpjava/hyumin/blob/master/ch8/src/ch8/ExceptionEx13.java)
