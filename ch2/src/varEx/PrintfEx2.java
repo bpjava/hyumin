@@ -1,3 +1,8 @@
+/** 실수형 값과 문자열 출력하기
+ * 실수 %f
+ * 지수 %e
+ * 간략 %g
+ *  */
 package varEx;
 
 public class PrintfEx2 {

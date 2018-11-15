@@ -1,3 +1,7 @@
+/** printf()로 정수형 출력하기
+ * - 지시자 '%d' 이용
+ * - 간격 맞출 경우 [%5d] %n ...
+ * */
 package varEx;
 
 public class PrintfEx1 {

@@ -1,4 +1,6 @@
+/*  scanner로 화면에서 입력받기 */
 package varEx;
+
 import java.util.*; //Scanner를 사용하기 위해 추가
 
 public class SvannerEx {
