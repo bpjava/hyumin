@@ -1,3 +1,9 @@
+/** 반복문 - for 중첩
+ *  배열만들기
+ * */
+
+package ch4;
+
 class FlowEx20 {
 	public static void main(String[] args) { 
 		for(int i=1;i<=5;i++) { 

@@ -1,3 +1,9 @@
+/** 반복문을 활용한 메뉴 선택 및 계산프로그램
+ * */
+
+package ch4;
+
+
 import java.util.*;
 
 class FlowEx34 {

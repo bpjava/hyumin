@@ -1,3 +1,7 @@
+/** switch문에서 case의 갯수는 최소화해야함
+ * 중첩 switch문의 break;문을 잊지말아야함!*/
+package ch4;
+
 import java.util.*;
 
 class FlowEx11 {
@@ -21,7 +25,7 @@ class FlowEx11 {
 					case '3':
 					System.out.println("당신은 2000년 이후에 출생한 남자입니다.");
 				}
-				break;    // 이 break문을 빼먹지 않도록 주의
+				break;    // 이 중첩 break문을 빼먹지 않도록 주의
 			case '2':
 			case '4':
 				switch(gender) {

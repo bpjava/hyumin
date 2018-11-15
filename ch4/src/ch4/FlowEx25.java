@@ -1,3 +1,10 @@
+/** 반복문 - while문
+ * 숫자를 입력받아 각 자리의 합을 구하는 예제
+ * num/=10 에 의해 줄어들다 0이되면 while문을 빠져나온다.
+ * */
+package ch4;
+
+
 import java.util.*;
 
 class FlowEx25 {

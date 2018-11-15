@@ -1,3 +1,8 @@
+/** 반복문 - for 중첩
+ * 삼각형 모양의 별 출력하기
+ * */
+package ch4;
+
 import java.util.*;
 
 class FlowEx17 {

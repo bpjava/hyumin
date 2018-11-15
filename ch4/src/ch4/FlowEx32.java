@@ -1,3 +1,12 @@
+/** 반복문 - continue
+ *  반복문 내에서만 사용 가능
+ *    for문 - 증감식
+ *    while, do-while - 조건식
+ *  으로 이동
+ * */
+
+package ch4;
+
 import java.util.*;
 
 class FlowEx32 {
@@ -7,7 +16,7 @@ class FlowEx32 {
 
 		Scanner scanner = new Scanner(System.in);
 
-		while(true) {
+		while(true) {// continue 여기로 이동
 			System.out.println("(1) square");
 			System.out.println("(2) square root");
 			System.out.println("(3) log");
@@ -21,7 +30,7 @@ class FlowEx32 {
 				break;
 			} else if (!(1 <= menu && menu <= 3)) {
 				System.out.println("메뉴를 잘못 선택하셨습니다.(종료는 0)");
-				continue;		
+				continue;	// 잘못선택한 경우 다시 메뉴를 보여줌	
 			}
 			
 			System.out.println("선택하신 메뉴는 "+ menu +"번입니다.");

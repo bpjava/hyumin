@@ -1,3 +1,9 @@
+/** ¹Ýº¹¹® - for ÁßÃ¸
+ * 5*10
+ * */
+
+package ch4;
+
 class FlowEx16 {
 	public static void main(String[] args) { 
 		for(int i=1;i<=5;i++) { 

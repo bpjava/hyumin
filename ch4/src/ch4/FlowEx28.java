@@ -1,3 +1,10 @@
+/** 반복문 - do-while 
+ * do{
+ * 		// 조건식의 연산결과가 참일 때 수행될 문장들을 적는다. 
+ * } while（조건식); <-끝에 ; 을 잊지 않도록 주의
+*/
+package ch4;
+
 import java.util.*;
 
 class FlowEx28 {

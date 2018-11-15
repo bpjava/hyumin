@@ -1,3 +1,8 @@
+/** 반복문 - for 중첩
+ * if문으로 i==j를 만족시키는 경우만 출력
+ * */
+package ch4;
+
 class FlowEx21 {
 	public static void main(String[] args) { 
 		for(int i=1;i<=5;i++) { 

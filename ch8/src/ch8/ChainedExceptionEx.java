@@ -4,8 +4,8 @@ public class ChainedExceptionEx {
 	public static void main(String[] args) {
 		try {
 			install();
-		} catch (InstallException e) {
-			e.printSackTrace();
+		} catch (InstallException ie) {
+			ie.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -21,7 +21,7 @@ public class ChainedExceptionEx {
 			throw ie;
 		} catch (MemoryException me) {
 			InstallException ie = new InstallException("설치중 예외발생");
-			ie.initCause(e);
+			ie.initCause(ie);
 			throw ie;
 		} finally {
 			deleteTempFiles();
@@ -35,7 +35,7 @@ public class ChainedExceptionEx {
 		
 		if(!enoughMemory()) {
 			throw new MemoryException("메모리가 부족합니다.");
-			throw new RuntimeException(new MemoryException("메모리가 부족합니다."));
+			//throw new RuntimeException(new MemoryException("메모리가 부족합니다."));
 		}
 	}
 	 

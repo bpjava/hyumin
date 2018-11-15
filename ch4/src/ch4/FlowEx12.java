@@ -1,3 +1,10 @@
+/** 반복문 - for
+ * 세로로출력 println();
+ * 가로로출력 print();
+ * */
+
+package ch4;
+
 class FlowEx12 {
 	public static void main(String[] args) { 
 		for(int i=1;i<=5;i++)

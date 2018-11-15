@@ -1,4 +1,5 @@
 /* 스위치문으로 주민번호를 입력받아서 남녀 성별 구분하기
+ * gender = regNo.charAt (7) ;
  * 
  */
 package ch4;

@@ -1,5 +1,5 @@
 /* 좀더 간단한 switch로 학점계산기
- * 
+ * score을 10으로 나누기
  */
 package ch4;
 

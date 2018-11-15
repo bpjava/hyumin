@@ -1,12 +1,11 @@
 /* switch를 이용한 점수별 학점계산기
- * 
+ * 너무 많은 case가 나와서 좋지 못함
  */
 package ch4;
 
 import java.util.*;
 
 public class FlowEx9 {
-
 	public static void main(String[] args) {
 		int score = 0;
 		char grade = ' ';
