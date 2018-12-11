@@ -336,7 +336,7 @@ for(int i=0; i<1000; i++) ll.add(500, "X");
  
  : 컬렉션에 저장된 요소를 접근하는데 사용하는 인터페이스
  
- - ListIterator : Iterator의 기능을 향상
+ - ListIterator : Iterator의 기능을 향상Iterator에 양방향 조회기능추가(Ust를 구현한 경우만 사용가능)
  - Enumeration : Iterator의 구버젼
 
 #### Iterator
@@ -382,17 +382,97 @@ for(int i=0; i<1000; i++) ll.add(500, "X");
 
 #### ListIterator와 Enumeration
 
+[ListIterator예제](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/ListIteratoEx1.java)
+
+[MyVector클래스를 상속받는 새로운 클래스가 Iterator을 구현](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/MyVector2.java)
+
 
 ### 1.6 Arrays
 
+: 배열을 다루는데 유용한 메서드
+
+ - 모두 static메서드
+
 #### 배열의 복사 - copyOf(), copyOfRange()
+
+```
+    int[] arr = {0,1,2,3,4};
+    int[] arr2 = Arrays.copyOf(arr, arr.length) // arr2=[0,1,2,3,4]
+    int[] arr3 = Arrays.copyOf(arr, 3);         // arr3=[0,1,2]
+    int[] arr4 = Arrays.copyOf(arr, 7);         // arr3=[0,1,2,3,4,0,0]
+
+    int[] arr5 = Arrays.copyOfRange(arr, 2, 4); // arr4 = [2,3] <- 4는 포함되지않음
+    int[] arr6 = Arrays.copyOfRange(arr, 0, 7); // arr3=[0,1,2,3,4,0,0]
+```
+* copyOf() : 배열 전체
+* copyOfRange() : 배열의 일부를 복사해 새로운 배열 생성
+    * 범위의 끝은 포함되지않음
+
+
 #### 배열 채우기 - fill(), setAll()
+
+```
+    int[] arr = new int[5];
+    Arrays.fill(arr, 9);    // arr=[9, 9, 9, 9, 9]
+    Arrays.setAll(arr, () -> (int)(Math.random()*5)+1) // 랜덤
+```
+* fill() : 배열의 모든 요소를 지정된 값으로 채움
+* setAll() : 함수형 인터페이스를 배열을 채우는데 사용할 매개변수로 받음(혹은 람다식)
+
 #### 배열의 정렬과 검색 - sort(), binarySearch()
+
+```
+    int[] arr = { 3, 2, 0, 1, 4 };
+    int idx = Array.binarySearch(arr, 2); //idx=-5 -잘못된 결과
+
+    Arrays.sort(arr); // 배열을 정렬한다.
+    System.out.println(Arrays.toString(arr));
+    int idx = Array.binarySearch(arr, 2); //idx=2 -올바른 결과 
+```
+* sort() : 배열 정렬
+* binarySearch() : 배열에서 지정된 값이 저장된 위치를 반환(선 정렬 후 서치)
+
 #### 문자열의 비교와 출력 - equals(), toString()
+
+* toString() : 배열의 모든 요소를 문자열로 출력 (다차원 : deepToString())
+```
+    int[] arr = { 0, 1, 2, 3, 4};
+    int[][] arr2D = {{11,12}, {21, 22}};
+
+    System.out.println(Arrays.toString(arr)); // [0, 1, 2, 3, 4]
+    System.out.println(Arrays.deepToString(arr2D)); // [[11,12], [21, 22]]
+```
+
+* equals() : 두 배열에 저장된 모든 요소를 비교해서 같으면 true, 다르면 false를 반환 (다차원 : deepEquals())
+
+```
+    String[][] str2D = new String[][]{{"aaa" ,"bbb" },{"AAA","BBB" }}; 
+    String [][] str2D2 = new String[][]{{ "aaa", "bbb" }, {"AAA", "BBB" }};
+
+    System.out.println(Arrays.equals(str2D, str2D2)); //false 
+    System.out.println(Arrays.deepEquals(str2D, str2D2)); // true
+
+```
+
 #### 배열의 List로 변환 - asList(Object... a)
-#### ParallelXXX(), spliterator(), stream()
 
+```
+    List list = Arrays.asList (new Integer[] {1,2,3,4,5});// list = [1, 2, 3, 4, 5] 
+    List<Integer>list = Arrays•asList(1,2,3,4,5); // list = [1, 2, 3, 4, 5]
+    list.add(6); //UnsupportedOperationException 예외 발생
+    
+```
+* asList() : 배열을 List에 담아서 반환, 매개변수타입이 가변인수라서 배열 생성 없이 저장할 요소들만 나열하는 것도 가능하다.
+    * 단, 반환한 List의 크기변경이 불가( 추가 / 삭제 불가 )
+    크기변경이 가능하려면
 
+    > List<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4,5));
+
+#### [ParallelXXX(), spliterator(), stream()](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/ArraysEx.java)
+
+* ParallelXXX() : 보다 빠른 결 과를 얻기 위해 여러 쓰레드가 작업을 나누어 처리하도록 한다.
+* spliterator() : 여러 쓰레 드가 처리할 수 있게 하나의 작업을 여러 작업으로 나누는 Spliterator를 반환
+* stream() : 컬렉션을 스트림으로 변환한다
 ========= =======================
 
 ### 1.7 Comparator와 Comparable
