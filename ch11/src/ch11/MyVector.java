@@ -103,10 +103,11 @@ public class MyVector implements List {
 		public boolean isEmpty() { return size==0; }
 		public int capacity() { return capacity; }
 		public int size() { return size; }
-		
+	
 		/********************************************/
 		/*		 List인터페이스로부터 상속받은 메서드들		*/
 		/********************************************/
+	
 		// public int size();
 		// public boolean isEmpty();
 		   public boolean contains(Object o) { return false; }
@@ -132,9 +133,10 @@ public class MyVector implements List {
 		   public Listlterator listlterator(){ return null; } 
 		   public Listlterator listlterator(int index){ return null; } 
 		   public List subList(int fromlndex, int tolndex){ return null; }
-		
+	
+
 		   default void sort (Comparator c) { /* 내용생략 */ } // JDK1.8부터
 		   default Spliterator spliterator () { /* 내용생략 */ } // JDK1.8부터
-		   default void replaceAll(UnaryOperator operator) { /* 내용생략 */ }  
+    	   default void replaceAll(UnaryOperator operator) { /* 내용생략 */ }  
  	}
  }
