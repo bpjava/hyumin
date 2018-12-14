@@ -8,58 +8,59 @@ public class MyVector implements List {
 	Object[] data = null; //객체를 담기 위한 객체 배열을 선언한다.
 	int capacity = 0;	  //용량
 	int size = 0;         //크기
-	
-	//1) 생성자1
-	public MyVector(int capacity) {
-		if (capacity < 0)
-			throw new IllegalArgumentException("유효하지 않은 값입니다. :"+ capacity);
 		
-		this.capacity = capacity;
-		data = new Object[capacity];
-	}
-	
-	//2) 생성자2
-	public MyVector() {
-		this(10);	//크기를 지정하지 않으면 크기를 10으로 한다.
-	}
-	
-	//3) 최소한의 저장공간(capacity)를 확보하는 메서드
-	public void ensureCapacity(int minCapacity) {
-		if(minCapacity - data.length > 0)
-			setCapacity(minCapacity);
-	}
-	
-	// 4) 새로운 객체를 저장하는 add 메서드
-	public boolean add(Object obj) {
-		// 새로운 객체를 저장하기 전에 저장할 공간을 확보한다.
-		ensureCapacity(size+1);
-		data[size++] = obj;
-		return true;
-	}
-	
-	// 5) 원하는 데이터를 얻는 get 메서드
-	public Object get(int index) {
-		if(index < 0 || index >= size)
-			throw new IndexOutOfBoundsException("범위를 벗어났습니다.");
-		return data[index];
-	}
-	
-	// 6) 해당 인덱스의 데이터를 제거하는 remove 메서드
-	public Object remove(int index) {
-		Object oldObj = null;
-		
-		if(index < 0 || index >= size)
-			throw new IndexOutOfBoundsException("범위를 벗어났습니다.");
-		oldObj = data[index];
-		
-		// 삭제하고자 하는 객체가 마지막 객체가 아니라면, 배열 복사를 통해 빈자리를 채워줘야한다.
-		if(index != size -1) {
-			System.arraycopy(data, index+1, data, index, size-index-1);
+		//1) 생성자1
+		public MyVector(int capacity) {
+			if (capacity < 0)
+				throw new IllegalArgumentException("유효하지 않은 값입니다. :"+ capacity);
+			
+			this.capacity = capacity;
+			data = new Object[capacity];
 		}
-		//마지막 데이터를 null로 한다. 배열은 0부터 시작하므로 마지막 요소는 index가 size-1이다.
-		data[size-1] = null;
-		size--;
-		return oldObj;
+			
+		//2) 생성자2
+		public MyVector() {
+			this(10);	//크기를 지정하지 않으면 크기를 10으로 한다.
+		}
+		
+		//3) 최소한의 저장공간(capacity)를 확보하는 메서드
+		public void ensureCapacity(int minCapacity) {
+			if(minCapacity - data.length > 0)
+				setCapacity(minCapacity);
+		}
+		
+		// 4) 새로운 객체를 저장하는 add 메서드
+		public boolean add(Object obj) {
+			// 새로운 객체를 저장하기 전에 저장할 공간을 확보한다.
+			ensureCapacity(size+1);
+			data[size++] = obj;
+			return true;
+		}
+		
+		// 5) 원하는 데이터를 얻는 get 메서드
+		public Object get(int index) {
+			if(index < 0 || index >= size)
+				throw new IndexOutOfBoundsException("범위를 벗어났습니다.");
+			return data[index];
+		}
+	
+		// 6) 해당 인덱스의 데이터를 제거하는 remove 메서드
+		public Object remove(int index) {
+			Object oldObj = null;
+			
+			if(index < 0 || index >= size)
+				throw new IndexOutOfBoundsException("범위를 벗어났습니다.");
+			oldObj = data[index];
+			
+			// 삭제하고자 하는 객체가 마지막 객체가 아니라면, 배열 복사를 통해 빈자리를 채워줘야한다.
+			if(index != size -1) {
+				System.arraycopy(data, index+1, data, index, size-index-1);
+			}
+			//마지막 데이터를 null로 한다. 배열은 0부터 시작하므로 마지막 요소는 index가 size-1이다.
+			data[size-1] = null;
+			size--;
+			return oldObj;
+		 }
 	
 		// 7) 해당 Object를 삭제하는데 성공했는지 알려주는 메서드
 		public boolean remove(Object obj) {
@@ -72,7 +73,7 @@ public class MyVector implements List {
 			return false;
 		}
 		
-		// 8) 여분 공백을 제거한느 메서드
+		// 8) 여분 공백을 제거하는 메서드
 		public void trimToSize() {
 			setCapacity(size);
 		}
@@ -87,12 +88,14 @@ public class MyVector implements List {
 			this.capacity = capacity;
 		}
 		
+		// 10) 요소 제거
 		public void clear() {
 			for (int i = 0; i < size; i++)
 				data[i] = null;
 			size = 0;
 		}
 		
+		// 11) 객체 배열하기
 		public Object[] toArray() {
 			Object[] result = new Object[size];
 			System.arraycopy(data, 0, result, 0, size);
@@ -103,14 +106,24 @@ public class MyVector implements List {
 		public boolean isEmpty() { return size==0; }
 		public int capacity() { return capacity; }
 		public int size() { return size; }
+		
+		
+		@Override
+		public int lastIndexOf(Object o) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
 	
 		/********************************************/
-		/*		 List인터페이스로부터 상속받은 메서드들		*/
+		/*											*/
+		/*       List인터페이스로부터 상속받은 메서드들		*/
+		/* 											*/	
 		/********************************************/
 	
 		// public int size();
 		// public boolean isEmpty();
-		   public boolean contains(Object o) { return false; }
+		// 11) 요소를 포함하고 있는지 
+		   public boolean contains(Object o) { return indexOf(o) != -1; }
 		   public Iterator iterator() { return null; }
 		// public Object[] toArray();
 		   public Object[] toArray(Object a[]) { return null;}
@@ -122,21 +135,31 @@ public class MyVector implements List {
 		   public boolean removeAll (Collection c) { return false; } 
 		   public boolean retainAll(Collection c) { return false; }
 		// public void clear(); 
+		// 12) 
 		   public boolean equals (Object o) { return false; }
 		// public int hashCode(); 
 		// public Object get(int index); 
 		   public Object set(int index, Object element){ return null;} 
 		   public void add(int index, Object element) {}
 		// public Object remove(int index); 
-		   public int indexOf(Object o) { return -1; } 
+		   public int indexOf(Object o) {  
+			   for (int j = 0; j < size; j++) {
+	            if (o.equals(data[j])) {
+	                return j;
+	            }
+	        }
+	        return -1; 
+	       } 
 		   public int lastlndexOf(Object o) { return -1; } 
-		   public Listlterator listlterator(){ return null; } 
-		   public Listlterator listlterator(int index){ return null; } 
-		   public List subList(int fromlndex, int tolndex){ return null; }
+		   public ListIterator listIterator(){ return null; } 
+		   public ListIterator listIterator(int index){ return null; } 
+		   public List subList(int formIndex, int toIndex){ return null; }
+
+		
 	
 
-		   default void sort (Comparator c) { /* 내용생략 */ } // JDK1.8부터
-		   default Spliterator spliterator () { /* 내용생략 */ } // JDK1.8부터
-    	   default void replaceAll(UnaryOperator operator) { /* 내용생략 */ }  
+//		   default void sort (Comparator c) { /* 내용생략 */ } // JDK1.8부터
+//		   default Spliterator spliterator () { /* 내용생략 */ } // JDK1.8부터
+//   	   default void replaceAll(UnaryOperator operator) { /* 내용생략 */ }  
  	}
- }
+ 

@@ -22,11 +22,13 @@ public class ExpValidCheck {
 		try {
 			for(int i=0; i < expression.length(); i++) {
 				char ch = expression.charAt(i);
-				
+				System.out.println(expression);
 				if(ch=='(') {
 					st.push(ch+"");
+					System.out.println(expression);
 				} else if(ch==')') {
 					st.pop();
+					System.out.println(expression);
 				}
 			}
 			

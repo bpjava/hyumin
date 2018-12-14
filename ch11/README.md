@@ -161,10 +161,6 @@ for(int i=list2.size()-1; i>=0; i--) {
 
 [Vector클래스_실제코드](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/MyVector.java)
 
->> 채워보아야함,,,
-
-https://github.com/danweller18/java-projects/blob/master/COSC241001_dweller0/src/collection/MyVector.java
-
 > 해당 인덱스의 데이터를 제거하는 remove 메서드
 ```
 public Object remove(int index) {
@@ -336,7 +332,7 @@ for(int i=0; i<1000; i++) ll.add(500, "X");
  
  : 컬렉션에 저장된 요소를 접근하는데 사용하는 인터페이스
  
- - ListIterator : Iterator의 기능을 향상Iterator에 양방향 조회기능추가(Ust를 구현한 경우만 사용가능)
+ - ListIterator : Iterator의 기능을 향상Iterator에 양방향 조회기능추가(List를 구현한 경우만 사용가능)
  - Enumeration : Iterator의 구버젼
 
 #### Iterator
@@ -473,7 +469,6 @@ for(int i=0; i<1000; i++) ll.add(500, "X");
 * ParallelXXX() : 보다 빠른 결 과를 얻기 위해 여러 쓰레드가 작업을 나누어 처리하도록 한다.
 * spliterator() : 여러 쓰레 드가 처리할 수 있게 하나의 작업을 여러 작업으로 나누는 Spliterator를 반환
 * stream() : 컬렉션을 스트림으로 변환한다
-========= =======================
 
 ### 1.7 Comparator와 Comparable
 
