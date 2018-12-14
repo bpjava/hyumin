@@ -34,6 +34,20 @@ public class HashSetEx5 {
 			if(!setB.contains(tmp))
 				setCha.add(tmp);
 		}
+		
+		it = setA.iterator();
+		while(it.hasNext()) {
+			setHab.add(it.next());
+		}
+		
+		it = setB.iterator();
+		while(it.hasNext()) {
+			setHab.add(it.next());
+		}
+		
+		System.out.println("A ∩ B = "+setKyo); // 한글 ㄷ누르고한자
+		System.out.println("A ∪ B = "+setHab);
+		System.out.println("A - B = "+setCha);
  	}
 
 }
