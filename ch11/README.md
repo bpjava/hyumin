@@ -383,7 +383,8 @@ for(int i=0; i<1000; i++) ll.add(500, "X");
 [MyVector클래스를 상속받는 새로운 클래스가 Iterator을 구현](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/MyVector2.java)
 
 
-### 1.6 Arrays
+### 1.6 [Arrays](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/ArraysEx.java)
+
 
 : 배열을 다루는데 유용한 메서드
 
@@ -454,18 +455,16 @@ for(int i=0; i<1000; i++) ll.add(500, "X");
 
 ```
     List list = Arrays.asList (new Integer[] {1,2,3,4,5});// list = [1, 2, 3, 4, 5] 
-    List<Integer>list = Arrays•asList(1,2,3,4,5); // list = [1, 2, 3, 4, 5]
+    List list = Arrays.asList(1,2,3,4,5); // list = [1, 2, 3, 4, 5]
     list.add(6); //UnsupportedOperationException 예외 발생
-    
 ```
 * asList() : 배열을 List에 담아서 반환, 매개변수타입이 가변인수라서 배열 생성 없이 저장할 요소들만 나열하는 것도 가능하다.
     * 단, 반환한 List의 크기변경이 불가( 추가 / 삭제 불가 )
     크기변경이 가능하려면
 
-    > List<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4,5));
+    > List list = new ArrayList(Arrays.asList(1,2,3,4,5));
 
-#### [ParallelXXX(), spliterator(), stream()](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/ArraysEx.java)
-
+#### ParallelXXX(), spliterator(), stream()
 * ParallelXXX() : 보다 빠른 결 과를 얻기 위해 여러 쓰레드가 작업을 나누어 처리하도록 한다.
 * spliterator() : 여러 쓰레 드가 처리할 수 있게 하나의 작업을 여러 작업으로 나누는 Spliterator를 반환
 * stream() : 컬렉션을 스트림으로 변환한다

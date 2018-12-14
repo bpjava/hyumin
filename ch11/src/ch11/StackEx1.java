@@ -43,7 +43,7 @@ public class StackEx1 {
 	
 	public static void goURL(String url) {
 		back.push(url);
-		if(forward.empty())
+		if(!forward.empty())
 			forward.clear();
 	}
 	
