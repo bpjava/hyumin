@@ -1,5 +1,5 @@
 /** TreeMap을 이용하여 키를 오름차순/내림차순 으로 정렬하기
- * 
+ *  HashMapEx4와비교
  */
 package ch11;
 
@@ -34,7 +34,8 @@ class TreeMapEx1 {
 		// map을 ArrayList로 변환한 다음에 Collections.sort()로 정렬
 		Set set = map.entrySet();
 		List list = new ArrayList(set); //ArrayList(Collection c)
-		
+	
+		// 정렬방법 지정(내림차순)
 		//static void sort(List , list, Collector c)
 		Collections.sort(list, new ValueComparator());
 		
@@ -49,6 +50,7 @@ class TreeMapEx1 {
 	
 	} // public static void main(String[] args)
 	
+	//내림차순
 	static class ValueComparator implements Comparator {
 		public int compare(Object o1, Object o2) {
 			if(o1 instanceof Map.Entry && o2 instanceof Map.Entry ) {
@@ -59,6 +61,7 @@ class TreeMapEx1 {
 				int v2 = ((Integer)e2.getValue()).intValue();
 				return v2 - v1;
 			}
+			
 			return -1;
 		}
 	} // static class ValueComparator implements Comparator 

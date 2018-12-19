@@ -31,6 +31,7 @@ public class PropertiesEx2 {
 		}
 		
 		String name = prop.getProperty("name"); 
+		
 		String[] data = prop.getProperty("data").split(",");
 		int max = 0; 
 		int min = 0; 

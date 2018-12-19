@@ -500,14 +500,259 @@ public interface Comparable {
 : Set인터페이스를 구현한 가장 대표적인 컬렉션(중복X)
 
 - 추가할 때 add메서드, addAll메서드 이용 중복시 false반환
+- 저장순서를 유지하고자 한다면 LinkedHashSet을 사용
+- [HashSet의 메서드](https://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html)
+
+#### HashSet예제
+[객체별중복값처리](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx1.java)
+[로또번호출력-중복X](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetLotto.java)
+[빙고판출력](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/Bingo.java)
+[인스턴스가 여러개일때 중복인식 문제](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx3.java)
+[↑해결법](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx4.java)
+
+#### 오버라이딩을 통해 작성된 hashCode()의 조건 3가지
+1. 동일한 객체 여러번 호출시에도 동일한 int값 반환
+(실행시마다 동일한 int값 X, 단 equals 메서드 멤벼번수 값 동일)
+
+```
+    // 매 실행시 같은 값 X , 일치여부를 확인
+    Person2 p = new Person2("David", 10);
+    
+    // hashCode1,hashCode2항상 일치
+    int hashCode1 = p.hashCode();
+    int hashCode1 = p.hashCode();
+    
+    // 값 변경되면 hashCode3값과는 위와 달라도됨
+    p.age = 20;
+    int hashCode3 = p.hashCode();
+```
+
+2. 두 객체의 equals메서드 비교 결과 값 true인 경우, 
+반드시 두 객체의 hashCode()호출 값은 동일
+
+```
+    Person2 p1 = new Person2("David", 10);
+    Person2 p2 = new Person2("David", 10);
+    
+    boolean b = p1.equals(p2); // true라면
+
+    // hashCode1,hashCode2항상 일치
+    int hashCode1 = p.hashCode();
+    int hashCode1 = p.hashCode();
+```
+
+3. 두 객체의 equals메서드 비교 결과 값 false인 경우, 
+두 객체의 hashCode()는 해싱(hashing)사용하는 컬렉션(ex> Hashtable, HashMap ... )의 성능 향상을 위해 다른 int값을 반환하는것이 좋다.(속도저하의 이유)
+
+[합집합&교집합&차집합](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx5.java)
+
 ### 1.9 TreeSet
+
+: 이진 검색 트리(binary search tree)라는 자료구조의 형태로 데이터를 저장
+
+#### 이진 검색 트리는 
+
+    - 정렬, 검색, 범위검색(range search)에 탁월
+    - TreeSet은 이진 검색 트리의 성능을 향상시킨 '레드-블랙 트리'
+    - 중복데이터 저장 X(Set인터페이스), 저장순서 유지 X
+    - 이진트리는 노드(node)가 서로 연결된 구조, 부모-자식관계
+    - 시작 노드 = 루트(root), 왼-작은거 (부모노드) 오른-큰거
+    - 모든 노드는 최대 두 개의 자식노드를 가질 수 있다.
+    - 노드 추가 삭제에 시간이 걸린다(순차적으로 저장하지 않으므로)
+
+```
+class TreeNode{
+    TreeNode left;  //왼쪽자식노드
+    Object   element; // 객체 저장하기위한 참조변수
+    TreeNode right; //오른쪽자식노드
+}
+```
+
+[TreeSet의 생성자와 메서드]()
+
+#### TreeSet 예제
+
+[로또-정렬없이바로가능](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeSetLotto.java)
+[subSet() 범위검색시 - 범위설정법](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeSetEx1.java)
+
+* 주의점1 : 끝 범위는 포함하지 않기 때문에 "zzz"같은 문자열 붙여줘야 한다
+* 주의점2 :  대문자>>소문자 이므로 순서가 원하는 대로 안나올수 있으니 통일하여 저장하는 것이 좋다
+
+[출력순서](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/AsciiPrint.java)
+[headSet/tailSet메서드](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeSetEx2.java)
 
 ### 1.10 HashMap과 HashTable
 
+: 구 HashTable 신 HashMap(구 Vector 신 ArrayList 처럼)
+
+- 키(key)와 값(value)을 묶어서 하나의 데이터(entry)로 저장
+- 해싱을 사용하여 많은 양의 데이터를 검색하기 유용
+
+```
+public class HashMap extends AbstractMap implements Map, Cloneable, Serializable
+{
+    // 내부 클래스 정의(객체 지향적인 코드)
+    transient Entry[] table;
+    ...
+    // Entry타입의 배열 선언
+    static class Entry implements Map.Entry {
+        // Object 타입으로 저장
+        final Object key;   // 컬렉션 내의 키(key) 중에서 유일
+        Object value;   //키(key)와 달리 중복 허용
+        ...
+    }
+}
+```
+[HashMap 생성자와 메서드]()
+
+#### HashMap 예제
+[HashMap 중복데이터 처리 - 마지막값](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx1.java)
+[entrySet(),keySet(),values()](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx2.java)
+[HashMap의 값으로 HashMap을 저장하기](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx3.java)
+[한정되지 않은 범위, 비순차적 값의 빈도수 구하기](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx4.java)
+
+#### 해싱과 해시함수
+: 해싱이란 해시함수(hash function)를 이용해서 데이터를 해시테이블(hash table)에 저장하고 검색하는 기법
+
+- 해시함수는 데이터 저장위치를 알려줘서 검색이 용이
+- HashSet, HashMap, Hashtable 등이 해싱을 구현한 컬렉션 클래스
+- 해싱에서 사용하는 자료구조는 배열 + 링크드리스트
+- 서랍과 자료에 비유 ; 서랍은 해싱에 사용되는 자료구조 중 배열의 각 요소를 의미하며, 배열의 각 요소에는 링크드 리스트가 저장되어 있어서 실제 저장한 데이터는 링크드 리스트에 담겨지게 됨
+- 순서
+    1. 검색하고자 하는 값의 키로 해시함수 호출
+    2. 해시함수의 계산결과인 해시코드를 이용해 해당값이 저장되어있는 링크드 리스트를 찾기
+    3. 링크드리스트에서 검색한 키와 일치하는 데이터 찾기
+- **링크드 리스트는 검색 불리 = 크기가 커질수록 속도 떨어짐**
+- **배열은 몇번째 있는지만 알면 속도 빠름**
+> 배열의 n번째 요소의 주소 = 배열의 시작주소 + type의 size * n
+
+```
+int hashFunction(String key) {
+    return Integer.parseInt(key.substring(0,1);
+}
+```
+* 실제로는 Object클래스에 정의된 hashCode()를 해시함수로 사용
+* String클래스의 경우 Object로부터 상속받은 hashCode()를 오버라이딩 해서 문자열의 내용으로 해시코드를 만들어냄!
+* equals()로 비교 결과가 true이며 hashCode()의 반환 값이 같아야 같은 객체로 인식, 중복 X, 새로운값으로 덮어씌움
+**클래스 정의시 equals()를 재정의 해야한다면 hashCode()도 같이 재정의 해서 equals()의 결과가 true인 경우에는 해시코드가 항상 같도록 해주어야한다!(그렇지않으면따로저장됨)**
+
+
 ### 1.11 TreeMap
+
+: 이진검색트리의 형태로 키와 값의 쌍으로 이루어진 데이터 저장
+
+- 검색과 정렬에 적합한 컬렉션 클래스
+- 검색 시 HashMap>TreeMap
+- [범위검색이나 정렬이 필요한 경우 TreeMap](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeMapEx1.java)
+
+[TreeMap의 생성자와 메서드]()
 
 ### 1.12 Properties
 
-### 1.13 Collections
+: HashMap의 구버전인 Hashtable을 상속받아 구현한 것으로, Hashtable은 키와 값을 (Object, Object)의 형태로 저장하는 데 비해 Properties는 (String, String)의 형태로 저장한다.(단순화된 컬렉션 클래스)
+
+- 주로 애플리케이션의 환경설정과 관련된 속성을 저장
+- 데이터를 파일로부터 읽고 쓰는 기능 제공
+- 간단한 입출력을 쉽게 해결
+
+[Properties의 생성자와 메서드]()
+
+#### Properties의 예제
+[기본메서드활용-저장,읽기,출력](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx1.java)
+[데이터입력받기(외부파일)](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx2.java)
+[Properties에 저장된 데이터를 파일로저장](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx3.java)
+[시스템속성가져오기-getProperties()](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx4.java)
+
+
+### 1.13 [Collections](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/CollectionsEx.java)
+
+: 컬렉션과 관련된 메서드 제공
+
+ - fill(), copy(), sort(), binarySearch() 두 클래스에 모두 포함
+
+#### 컬렉션의 동기화
+
+- 멀티 쓰레드(multi-thread) 프로그래밍에서는 하나의 객체를 여러 쓰레드가 동시에 접근 할 수 있기 때문에 일관성(consistency)을 유지하기 위해서는 공유되는 객체에 동기화(synchronization) 가 필요하다.
+- 단 멀티쓰레드 프로그래밍이 아닌 경우에는 성능 저하요인이 됨
+(Vector, Hashtable과 같은 구버전은 자체적으로 처리)
+- 동기화 메서드
+
+```
+static Collection   synchronizedCollection(Collection c)
+static List         synchronizedList(List List)
+static Set          synchronizedSet(Set s)
+static Map          synchronizedMap(Map m)
+static SortedSet    synchronizedSortedSet(SortedSet s)
+static SortedMap    synchronizedSortedMap(SortedMap m)
+```
+
+> 사용법
+```
+List syncList = Collections.synchronizedList(new ArrayList(...));
+```
+
+#### 변경불가 컬렉션 만들기
+
+- 데이터 보호를 위해 읽기전용으로 만들 경우
+- 멀티 쓰레드 프로그래밍에서 여러 쓰레드가 하나의 컬렉션을 공유할 경우, 데이터 손상을 방지
+
+```
+static Collection   unmodifiableCollection(Collection c)
+static List         unmodifiableList(List List)
+static Set          unmodifiableSet(Set s)
+static Map          unmodifiableMap(Map m)
+static NavigableSet unmodifiableNavigableSet(NavigableSet s)
+static SortedSet    unmodifiableSortedSet(SortedSet s)
+static NavigableMap unmodifiableNavigableMap(NavigableMap m)
+static SortedMap    unmodifiableSortedMap(SortedMap m)
+```
+
+#### 싱글톤 컬렉션 만들기(singleton~)
+
+- 인스턴스를 new연산자가 아닌 메서드를 통해서만 생성할 수 있게 함으로써 생성할 수 있는 인스턴스의 개수를 제한
+- 요소 지정 후 , 해당 요소를 저장하는 컬렉션을 반환, 변경 불가
+```
+static List singletonList(Object o)
+static Set singleton(Object o)  // singletonSet 아님
+static Map singletonMap(Object key, Object value)
+```
+
+#### 한 종류의 객체만 저장하는 컬렉션 만들기
+
+- 대부분의 경우 한 종류의 객체를 저장, 컬렉션에 지정된 종류의 객체만 저장하도록 제한하고 싶을 때 아래의 메서드를 사용한다.
+
+```
+static Collection   checkedCollection(Collection c, Class type)
+static List         checkedList(List List, Class type)
+static Set          checkedSet(Set s, Class type)
+static Map          checkedMap(Map m, Class keyType, Class valueType)
+static Queue        checkedQueue(Queue queue, Class type)
+static NavigableSet checkedNavigableSet(NavigableSet s, Class type)
+static SortedSet    checkedSortedSet(SortedSet s, Class type)
+static NavigableMap checkedNavigableMap(NavigableMap m, Class keyType, Class valueType)
+static SortedMap    checkedSortedMap(SortedMap m, Class keyType, Class valueType)
+```
+
+> 사용법
+```
+List list = new ArrayList();
+List checkedList = checkedList(list, String.class);//String만 저장가능
+checkedList.add("abc");            // ok.
+checkedList.add(new Integer(3));   // 에러, ClassCastException발생
+```
 
 ### 1.14 컬렉션 클래스 정리 & 요약
+
+**상황에 맞게 쓰기**
+|컬렉션|특  징|
+|:--|:--|
+|ArrayList|배열기반, 데이터의 추가와 삭제에 불리, 추가삭제는 제일 빠름. 임의의 요소에 대한 접근성(accessibility)이 뛰어남.|
+|LinkedList|연결기반, 데이터의 추가와 삭제에 유리. 임의의 요소에 대한 접근성이 좋지 않다.|
+|HashMap|배열과 연결이 결합된 형태. 추가, 삭제, 검색, 접근성이 모두 뛰어남. 검색에는 최고성능을 보인다.|
+|TreeMap|연결기반, 정렬과 검색(특히 범위검색)에 적합. 검색성능은 HashMap보다 떨어짐|
+|Stack|Vector를 상속받아 구현|
+|Queue|LinkedList가 Queue인터페이스를 구현|
+|Properties|Hashtable을 상속받아 구현|
+|HashSet|HashMap을 이용해서 구현|
+|TreeSet|TreeMap을 이용해서 구현|
+|LinkedHashMap/LinkedHashSet|HashMap과 HashSet에 저장순서 유지기능 추가|
