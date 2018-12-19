@@ -21,6 +21,7 @@ public class HashSetEx5 {
 		setB.add("7"); setB.add("8");
 		System.out.println("B = "+setB);
 		
+		// 교집합 (contains)
 		Iterator it = setB.iterator();
 		while(it.hasNext()) {
 			Object tmp = it.next();
@@ -28,6 +29,7 @@ public class HashSetEx5 {
 				setKyo.add(tmp);
 		}
 		
+		// 차집합(!contains)
 		it = setA.iterator();
 		while(it.hasNext()) {
 			Object tmp = it.next();
@@ -35,6 +37,7 @@ public class HashSetEx5 {
 				setCha.add(tmp);
 		}
 		
+		// 합집합(add+add)
 		it = setA.iterator();
 		while(it.hasNext()) {
 			setHab.add(it.next());

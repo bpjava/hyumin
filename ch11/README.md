@@ -471,8 +471,35 @@ for(int i=0; i<1000; i++) ll.add(500, "X");
 
 ### 1.7 Comparator와 Comparable
 
+: Arrays.sort()를 호출하면 Character 클래스의 Comparable의 구현에 의해 정렬
+
+- wrapper클래스(Integer), String, Date, File 등
+- 기본적으로 오름차순
+- [Comparable클래스목록-Java API](https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html)
+
+```
+public interface Comparator {
+    // 객체 비교후 음수, 0, 양수
+    int compare(Object o1, Object o2);
+    boolean equals(Object obj);
+}
+
+public interface Comparable {
+    // 비교하는 두 객체가 같으면 0, 작으면 음수, 크면 양수
+    public int compareTo(Object o);
+}
+```
+
+> Comparable : 기본 정렬 기준을 구현하는데 사용
+> Comparator : 기본 정렬 기준 외에 다른 기준으로 정렬하고자할 때 사용
+
+[Comparator예제](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/ComparatorEx.java)
+
 ### 1.8 HashSet
 
+: Set인터페이스를 구현한 가장 대표적인 컬렉션(중복X)
+
+- 추가할 때 add메서드, addAll메서드 이용 중복시 false반환
 ### 1.9 TreeSet
 
 ### 1.10 HashMap과 HashTable

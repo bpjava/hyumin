@@ -1,4 +1,4 @@
-/** HashSet- equals()와 hashCode()의 오버라이딩
+/** HashSet- equals()와 hashCode()의 오버라이딩이 필요
  * 을 통해 String 클래스에서 같은 내용의 문자열에 대한 중복처리하기
  
  */
@@ -8,12 +8,12 @@ import java.util.*;
 
 public class HashSetEx4 {
 	public static void main(String[] args) {
-HashSet set = new HashSet();
+		HashSet set = new HashSet();
 		
 		// 중복처리 O : 1개만출력
 		set.add("abc");
 		set.add("abc");
-		// 중복처리 X: 2개다출력
+		// 중복처리 O : 1개만출력
 		set.add(new Person2("David",10));
 		set.add(new Person2("David",10));
 
