@@ -505,15 +505,15 @@ public interface Comparable {
 
 #### HashSet예제
 
-[객체별중복값처리](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx1.java)
+1. [객체별중복값처리](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx1.java)
 
-[로또번호출력-중복X](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetLotto.java)
+2. [로또번호출력-중복X](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetLotto.java)
 
-[빙고판출력](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/Bingo.java)
+3. [빙고판출력](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/Bingo.java)
 
-[인스턴스가 여러개일때 중복인식 문제](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx3.java)
+4. [인스턴스가 여러개일때 중복인식 문제](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx3.java)
 
-[↑해결법](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx4.java)
+5. [↑해결법](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx4.java)
 
 #### 오버라이딩을 통해 작성된 hashCode()의 조건 3가지
 1. 동일한 객체 여러번 호출시에도 동일한 int값 반환
@@ -577,16 +577,16 @@ class TreeNode{
 
 #### TreeSet 예제
 
-[로또-정렬없이바로가능](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeSetLotto.java)
+1. [로또-정렬없이바로가능](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeSetLotto.java)
 
-[subSet() 범위검색시 - 범위설정법](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeSetEx1.java)
+2. [subSet() 범위검색시 - 범위설정법](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeSetEx1.java)
 
 * 주의점1 : 끝 범위는 포함하지 않기 때문에 "zzz"같은 문자열 붙여줘야 한다
 * 주의점2 :  대문자>>소문자 이므로 순서가 원하는 대로 안나올수 있으니 통일하여 저장하는 것이 좋다
 
-[출력순서](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/AsciiPrint.java)
+3. [출력순서](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/AsciiPrint.java)
 
-[headSet/tailSet메서드](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeSetEx2.java)
+4. [headSet/tailSet메서드](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeSetEx2.java)
 
 ### 1.10 HashMap과 HashTable
 
@@ -614,13 +614,13 @@ public class HashMap extends AbstractMap implements Map, Cloneable, Serializable
 
 #### HashMap 예제
 
-[HashMap 중복데이터 처리 - 마지막값](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx1.java)
+1. [HashMap 중복데이터 처리 - 마지막값](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx1.java)
 
-[entrySet(),keySet(),values()](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx2.java)
+2. [entrySet(),keySet(),values()](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx2.java)
 
-[HashMap의 값으로 HashMap을 저장하기](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx3.java)
+3. [HashMap의 값으로 HashMap을 저장하기](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx3.java)
 
-[한정되지 않은 범위, 비순차적 값의 빈도수 구하기](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx4.java)
+4. [한정되지 않은 범위, 비순차적 값의 빈도수 구하기](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx4.java)
 
 #### 해싱과 해시함수
 : 해싱이란 해시함수(hash function)를 이용해서 데이터를 해시테이블(hash table)에 저장하고 검색하는 기법
@@ -635,6 +635,7 @@ public class HashMap extends AbstractMap implements Map, Cloneable, Serializable
     3. 링크드리스트에서 검색한 키와 일치하는 데이터 찾기
 - **링크드 리스트는 검색 불리 = 크기가 커질수록 속도 떨어짐**
 - **배열은 몇번째 있는지만 알면 속도 빠름**
+
 > 배열의 n번째 요소의 주소 = 배열의 시작주소 + type의 size * n
 
 ```
@@ -642,6 +643,7 @@ int hashFunction(String key) {
     return Integer.parseInt(key.substring(0,1);
 }
 ```
+
 * 실제로는 Object클래스에 정의된 hashCode()를 해시함수로 사용
 * String클래스의 경우 Object로부터 상속받은 hashCode()를 오버라이딩 해서 문자열의 내용으로 해시코드를 만들어냄!
 * equals()로 비교 결과가 true이며 hashCode()의 반환 값이 같아야 같은 객체로 인식, 중복 X, 새로운값으로 덮어씌움
@@ -670,13 +672,13 @@ int hashFunction(String key) {
 
 #### Properties의 예제
 
-[기본메서드활용-저장,읽기,출력](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx1.java)
+1. [기본메서드활용-저장,읽기,출력](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx1.java)
 
-[데이터입력받기(외부파일)](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx2.java)
+2. [데이터입력받기(외부파일)](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx2.java)
 
-[Properties에 저장된 데이터를 파일로저장](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx3.java)
+3. [Properties에 저장된 데이터를 파일로저장](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx3.java)
 
-[시스템속성가져오기-getProperties()](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx4.java)
+4. [시스템속성가져오기-getProperties()](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx4.java)
 
 
 ### 1.13 [Collections](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/CollectionsEx.java)
