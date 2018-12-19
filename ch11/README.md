@@ -504,10 +504,15 @@ public interface Comparable {
 - [HashSet의 메서드](https://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html)
 
 #### HashSet예제
+
 [객체별중복값처리](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx1.java)
+
 [로또번호출력-중복X](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetLotto.java)
+
 [빙고판출력](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/Bingo.java)
+
 [인스턴스가 여러개일때 중복인식 문제](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx3.java)
+
 [↑해결법](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashSetEx4.java)
 
 #### 오버라이딩을 통해 작성된 hashCode()의 조건 3가지
@@ -568,17 +573,19 @@ class TreeNode{
 }
 ```
 
-[TreeSet의 생성자와 메서드]()
+[TreeSet의 생성자와 메서드](https://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html)
 
 #### TreeSet 예제
 
 [로또-정렬없이바로가능](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeSetLotto.java)
+
 [subSet() 범위검색시 - 범위설정법](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeSetEx1.java)
 
 * 주의점1 : 끝 범위는 포함하지 않기 때문에 "zzz"같은 문자열 붙여줘야 한다
 * 주의점2 :  대문자>>소문자 이므로 순서가 원하는 대로 안나올수 있으니 통일하여 저장하는 것이 좋다
 
 [출력순서](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/AsciiPrint.java)
+
 [headSet/tailSet메서드](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeSetEx2.java)
 
 ### 1.10 HashMap과 HashTable
@@ -603,12 +610,16 @@ public class HashMap extends AbstractMap implements Map, Cloneable, Serializable
     }
 }
 ```
-[HashMap 생성자와 메서드]()
+[HashMap 생성자와 메서드](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)
 
 #### HashMap 예제
+
 [HashMap 중복데이터 처리 - 마지막값](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx1.java)
+
 [entrySet(),keySet(),values()](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx2.java)
+
 [HashMap의 값으로 HashMap을 저장하기](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx3.java)
+
 [한정되지 않은 범위, 비순차적 값의 빈도수 구하기](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/HashMapEx4.java)
 
 #### 해싱과 해시함수
@@ -645,7 +656,7 @@ int hashFunction(String key) {
 - 검색 시 HashMap>TreeMap
 - [범위검색이나 정렬이 필요한 경우 TreeMap](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/TreeMapEx1.java)
 
-[TreeMap의 생성자와 메서드]()
+[TreeMap의 생성자와 메서드](https://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html)
 
 ### 1.12 Properties
 
@@ -655,12 +666,16 @@ int hashFunction(String key) {
 - 데이터를 파일로부터 읽고 쓰는 기능 제공
 - 간단한 입출력을 쉽게 해결
 
-[Properties의 생성자와 메서드]()
+[Properties의 생성자와 메서드](https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html)
 
 #### Properties의 예제
+
 [기본메서드활용-저장,읽기,출력](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx1.java)
+
 [데이터입력받기(외부파일)](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx2.java)
+
 [Properties에 저장된 데이터를 파일로저장](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx3.java)
+
 [시스템속성가져오기-getProperties()](https://github.com/bpjava/hyumin/blob/master/ch11/src/ch11/PropertiesEx4.java)
 
 
@@ -744,6 +759,7 @@ checkedList.add(new Integer(3));   // 에러, ClassCastException발생
 ### 1.14 컬렉션 클래스 정리 & 요약
 
 **상황에 맞게 쓰기**
+
 |컬렉션|특  징|
 |:--|:--|
 |ArrayList|배열기반, 데이터의 추가와 삭제에 불리, 추가삭제는 제일 빠름. 임의의 요소에 대한 접근성(accessibility)이 뛰어남.|
