@@ -1,5 +1,5 @@
 #Properties Example
-#Wed Dec 19 21:42:13 KST 2018
+#Thu Dec 20 13:10:37 KST 2018
 capacity=10
 size=10
 timeout=30

@@ -525,7 +525,7 @@ public interface Comparable {
     
     // hashCode1,hashCode2항상 일치
     int hashCode1 = p.hashCode();
-    int hashCode1 = p.hashCode();
+    int hashCode2 = p.hashCode();
     
     // 값 변경되면 hashCode3값과는 위와 달라도됨
     p.age = 20;
@@ -543,7 +543,7 @@ public interface Comparable {
 
     // hashCode1,hashCode2항상 일치
     int hashCode1 = p.hashCode();
-    int hashCode1 = p.hashCode();
+    int hashCode2 = p.hashCode();
 ```
 
 3. 두 객체의 equals메서드 비교 결과 값 false인 경우, 
@@ -640,7 +640,7 @@ public class HashMap extends AbstractMap implements Map, Cloneable, Serializable
 
 ```
 int hashFunction(String key) {
-    return Integer.parseInt(key.substring(0,1);
+    return Integer.parseInt(key.substring(0,1));
 }
 ```
 

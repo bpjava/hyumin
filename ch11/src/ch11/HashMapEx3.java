@@ -47,7 +47,7 @@ public class HashMapEx3 {
 		while(it.hasNext()) {
 			Map.Entry e = (Map.Entry)it.next();
 			
-			Set subSet = ( (HashMap)e.getValue()).entrySet();
+			Set subSet = ((HashMap)e.getValue()).entrySet();
 			Iterator subIt = subSet.iterator();
 			
 			System.out.println(" * " + e.getKey() + "[" + subSet.size() + "]");
