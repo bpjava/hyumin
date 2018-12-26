@@ -1,3 +1,11 @@
+/*String / Date 클래스의 toString()
+ * 오버라이딩을 통해 쓸모있는 정보제공
+ * 인스턴스 변수 값을 문자열로 변환후 반환
+ */
+
+package ch9;
+
+// public
 class Card {
 	String kind;
 	int number;

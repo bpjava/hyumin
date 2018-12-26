@@ -1,3 +1,10 @@
+/** java.util.Objects클래스
+ * : Objects클래스의 보조 클래스로 Math클래스 처럼 모든 메서드가 'static'이다
+ * 객체의 비교나 널 체크(null check)에 유용하다
+ */
+
+package ch9;
+
 import java.util.*;
 import static java.util.Objects.*;  // Objects클래스의 메서드를 static import
 

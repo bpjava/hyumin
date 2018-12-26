@@ -1,3 +1,8 @@
+/** StringBuffer메서드 활용
+ * 
+ */
+package ch9;
+
 class  StringBufferEx2 {
 	public static void main(String[] args) {
 		StringBuffer sb  = new StringBuffer("01");

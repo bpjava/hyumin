@@ -1,3 +1,9 @@
+/** 패턴정리
+ * 
+ */
+
+package ch9;
+
 import java.util.regex.*;	// Pattern과 Matcher가 속한 패키지
 
 class RegularEx2 {

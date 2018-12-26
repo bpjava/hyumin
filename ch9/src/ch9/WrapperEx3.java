@@ -1,3 +1,9 @@
+/** 오토박싱 언박싱
+ * 기본형과 참조형 간의 연산이 가능
+ */
+
+package ch9;
+
 class WrapperEx3 {
 	public static void main(String[] args) {
 		int i = 10;

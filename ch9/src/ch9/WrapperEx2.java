@@ -1,3 +1,11 @@
+/**문자열을 숫자열로 반환
+ * int i =: new Integer("100").intValue(); // floatValue(), longValue(), 
+ * int i2 == Integer.parselnt("100"); // 주로 이 방법을 많이 사용.
+ * Integer i3 == Integer.valueOf("100");
+ */
+
+package ch9;
+
 class WrapperEx2 {
 	public static void main(String[] args) {
 		int		 i  = new Integer("100").intValue();

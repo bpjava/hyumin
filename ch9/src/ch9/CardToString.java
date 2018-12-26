@@ -1,3 +1,10 @@
+/* toString() - 인스턴스에 대한 정보를 문자열로 제공
+ * 서로다른 인스턴스에 대해서는 클래스 이름이 같아도 
+ * 해시코드값이 다르다
+ */
+
+package ch9;
+
 class Card {
 	String kind;
 	int number;

@@ -1,3 +1,9 @@
+/** hashCode()
+ * 해시함수를 구현 - 문자열이 같으면 동일한 해시코드
+ */
+
+package ch9;
+
 class HashCodeEx1 {
 	public static void main(String[] args) {
 		String str1 = new String("abc");

@@ -1,3 +1,9 @@
+/** data2.txt파일로부터 데이터를 읽어서 합과 평균을 구하는예제
+ * 파일경로확인할것!
+ */
+
+package ch9;
+
 import java.util.Scanner;
 import java.io.File;
 

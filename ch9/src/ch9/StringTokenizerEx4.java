@@ -1,3 +1,8 @@
+/* 한글로된 숫자를 아라비아 숫자로 변환하는 예제
+ * 
+ */
+package ch9;
+
 import java.util.*; 
 
 class StringTokenizerEx4 { 

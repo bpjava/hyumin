@@ -1,3 +1,10 @@
+/* 1!부터 99!까지 출력하는 예제
+ * long타입은 20!까지
+ * BigInteger은 99!까지
+ */
+
+package ch9;
+
 import java.math.*;
 
 class BigIntegerEx {

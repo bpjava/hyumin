@@ -1,3 +1,9 @@
+/** Math클래스 메서드 활용 예제
+ * 
+ */
+
+package ch9;
+
 import static java.lang.Math.*;
 import static java.lang.System.*;
 

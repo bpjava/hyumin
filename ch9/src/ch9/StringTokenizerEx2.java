@@ -1,3 +1,9 @@
+/** 생성자 StringTokenizer(String str, String delim, boolean returnDelims)를 사용
+ * 구분자도 토큰으로 간주
+ */ 
+
+package ch9;
+
 import java.util.*; 
 
 class StringTokenizerEx2 { 

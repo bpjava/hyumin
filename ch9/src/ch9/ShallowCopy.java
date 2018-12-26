@@ -1,3 +1,10 @@
+/** 얕은복사 깊은복사 
+ * 원본과 복제본이 같은 객체를 공유하는것 - 얕은복사
+ * 원본이 참조하고 있는 객체까지 복제하는것 - 깊은복사
+ * 
+ */
+package ch9;
+
 import java.util.*;
 
 class Circle implements Cloneable {

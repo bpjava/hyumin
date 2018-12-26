@@ -1,3 +1,11 @@
+/** join()과 StringJoiner
+ * join() - 여러 문자열 사이에 구분자를 넣어 결합 , split()과반대
+ * StringJoiner 클래스를 사용
+ * 
+ */
+
+package ch9;
+
 import java.util.StringJoiner;
 
 class StringEx4 {
@@ -7,7 +15,8 @@ class StringEx4 {
 
 		System.out.println(String.join("-", arr));
 
-		StringJoiner sj = new StringJoiner("/","[","]");
+		// StringJoiner 사용법
+	 	StringJoiner sj = new StringJoiner("/","[","]");
 		for(String s : arr)
 			sj.add(s);
 

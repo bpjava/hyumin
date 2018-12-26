@@ -1,3 +1,9 @@
+/** 구분자가 있는 여러 데이터 처리
+ * 라인별로 읽은 다음에 ','(구분자)로하는 Scanner을 이용해 
+ * 각각의 데이터를 읽는다.
+ */
+package ch9;
+
 import java.util.Scanner;
 import java.io.File;
 

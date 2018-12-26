@@ -1,3 +1,8 @@
+/** substring메서드 - 한 문자열에서 내용의 일부를 추출
+ * index - 0부터 시작 end위치에 있는 문자는 포함 X
+ */
+package ch9;
+
 class StringEx7 {
 	public static void main(String[] args) {
 		String fullName = "Hello.java";

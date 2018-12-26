@@ -1,3 +1,9 @@
+/** 문자열에 포함된 데이터가 두가지 종류의 구분자로 나눠져있을 경우
+ * 두개의 StringTokenizer와 이중반복문 사용
+ */
+
+package ch9;
+
 import java.util.*; 
 
 class StringTokenizerEx3 { 

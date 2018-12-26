@@ -1,3 +1,8 @@
+/* 길이가 0인 배열생성
+ * char형 배열 참조변수 cArr 초기화 
+ */
+package ch9;
+
 class StringEx3 {
 	public static void main(String[] args) {
 		// 길이가 0인 char배열을 생성한다.

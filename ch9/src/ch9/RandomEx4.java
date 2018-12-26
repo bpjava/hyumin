@@ -1,3 +1,9 @@
+/** 데이터베이스에 넣을 테스트 데이터를 만드는 예제
+ * (불연속적인 범위)
+ */
+
+package ch9;
+
 import java.util.*;
 
 class RandomEx4 {

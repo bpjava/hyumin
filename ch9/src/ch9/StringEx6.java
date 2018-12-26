@@ -1,3 +1,10 @@
+/**문자열과 기본형간의 변환 
+ * parseInt()나 parseFloat() - 문자열에 공백 또는 문자가 포함되어 있는 경우 변환 시 예외(NumberFormat Exception)가 발생
+ * trim()-  문자열 양끝의 공백을 제거
+ */
+
+package ch9;
+
 class StringEx6 {
 	public static void main(String[] args) {
 		int iVal = 100;

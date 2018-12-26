@@ -1,3 +1,10 @@
+/** 화면으로 부터 라인단위로 입력받아서 입력받은 내용을 
+ * 공백을 구분자로 나눠서 출력
+ * 
+ */
+
+package ch9;
+
 import java.util.*; 
 
 class ScannerEx1 { 

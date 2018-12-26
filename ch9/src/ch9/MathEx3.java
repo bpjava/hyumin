@@ -1,3 +1,9 @@
+/** 삼각함수와 지수, 로그
+ * 
+ */
+
+package ch9;
+
 import static java.lang.Math.*;
 import static java.lang.System.*;
 

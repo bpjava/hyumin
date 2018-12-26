@@ -1,3 +1,9 @@
+/* java.math.BigDecimal≈¨∑°Ω∫
+ * 
+ */
+
+package ch9;
+
 import java.math.*;
 import static java.math.BigDecimal.*;
 import static java.math.RoundingMode.*;

@@ -1,11 +1,17 @@
+/** 문자 인코딩 변환
+ * 
+ */
+
+package ch9;
+
 import java.util.StringJoiner;
 
 class StringEx5 {
 	public static void main(String[] args) throws Exception {
 		String str = "가";
 
-		byte[] bArr  = str.getBytes("UTF-8");
-		byte[] bArr2 = str.getBytes("CP949");
+		byte[] bArr  = str.getBytes("UTF-8"); // 문자열을 UTF-8로변환
+		byte[] bArr2 = str.getBytes("CP949"); // byte배열을 문자열로 변환
 
 		System.out.println("UTF-8:" + joinByteArr(bArr));
 		System.out.println("CP949:" + joinByteArr(bArr2));

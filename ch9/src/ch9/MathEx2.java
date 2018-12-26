@@ -1,3 +1,9 @@
+/** 예외를 발생시키는 메서드
+ * Exact 포함 메서드 - 정수형간 연산에서 발생할 수 있는
+ * 오버 플로우 감지
+ */
+package ch9;
+
 import static java.lang.Math.*;
 import static java.lang.System.*;
 

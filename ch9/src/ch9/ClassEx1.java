@@ -1,3 +1,10 @@
+/* Class 객체를 이용하여 동적으로 객체 생성
+ * 
+ */
+
+package ch9;
+
+
 final class Card {
 	String kind;
 	int num;

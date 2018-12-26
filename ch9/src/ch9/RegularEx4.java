@@ -1,3 +1,11 @@
+/** Matcher의 find()로 정규식과 일치하는 부분을 찾으면
+ * 그위치를 start()와 end()로 알아낼 수 있고
+ * appendReplacement(StringBuffer sb, String replacement)를 이용해
+ * 원하는 문자열로 치환할 수 있다.
+ */
+
+package ch9;
+
 import java.util.regex.*;	// Pattern과 Matcher가 속한 패키지
 
 class RegularEx4 {

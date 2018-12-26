@@ -1,3 +1,8 @@
+/** equals메서드로 두 인스턴스 비교
+ * 
+ */
+package ch9;
+
 class EqualsEx1 {
 	public static void main(String[] args) {
 		Value v1 = new Value(10);
