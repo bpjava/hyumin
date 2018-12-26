@@ -1,3 +1,6 @@
+/** 두개의 독립된 클래스를 작성한 다음에
+ * 다시 익명클래스를 이용하여 변경
+ */
 package ch7;
 
 import java.awt.*;
@@ -14,6 +17,5 @@ public class InnerEx8 {
 			
 		} // 익명클래스의 끝
 	);
-	}
-
-}
+  }// main의 끝
+}// InnerEx8의 끝
